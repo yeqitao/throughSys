@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.through.tools</groupId>
+	<artifactId>through-tools</artifactId>
+	<name>工具模块</name>
+
+
+	<properties>
+		<hutool.version>5.0.0</hutool.version>
+		<user.agent.version>1.20</user.agent.version>
+		<ip2region.version>1.7.2</ip2region.version>
+	</properties>
+
+	<parent>
+		<groupId>com.through</groupId>
+		<artifactId>through</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<!-- <optional>true</optional> -->
+		</dependency>
+
+		<!-- hutool工具类 -->
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+			<version>${hutool.version}</version>
+		</dependency>
+
+		<!-- 解析 UserAgent 信息 -->
+		<dependency>
+			<groupId>eu.bitwalker</groupId>
+			<artifactId>UserAgentUtils</artifactId>
+			<version>${user.agent.version}</version>
+		</dependency>
+		
+	</dependencies>
+
+
+</project>

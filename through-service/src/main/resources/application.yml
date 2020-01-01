@@ -1,0 +1,65 @@
+server:
+  port: 8002
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8000/eureka/
+
+spring:
+  application:
+    name: throughService
+#==================================数据库配置=BEGIN=============================    
+  datasource:
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/through?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    #driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    initialization-mode: always
+    continue-on-error: true
+    schema:
+    - "classpath:sql/schema.sql"
+    data:
+    - "classpath:sql/data.sql"
+    hikari:
+      minimum-idle: 5
+      connection-test-query: SELECT 1 FROM DUAL
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: SpringBootDemoHikariCP
+      max-lifetime: 60000
+      connection-timeout: 30000
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    open-in-view: true
+
+#==================================数据库配置=END============================= 
+
+
+
+      
+#=======================dao层的=BEGIN================================
+#server:
+#  port: 8080
+#  servlet:
+#    context-path: /demo
+
+#spring:
+#  application:
+#    name: throughDao
+#logging:
+#  level:
+#    com.xkcoding: debug
+#    org.hibernate.SQL: debug
+#    org.hibernate.type: trace
+#=======================dao层的=END================================
